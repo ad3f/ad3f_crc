@@ -11,12 +11,3 @@ fetch(url)
     const res = data;
     counter.textContent = Number(res.body.visit_count);
   });
-
-//increment our visitor counter
-xhr.open("PUT", url);
-
-xhr.setRequestHeader("Accept", "application/json");
-xhr.setRequestHeader("Content-Type", "application/json");
-
-xhr.onload = () => console.log(xhr.responseText);
-xhr.send();

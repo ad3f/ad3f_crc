@@ -84,3 +84,16 @@ resource "aws_lb_target_group_attachment" "alb-tg-attach" {
   target_id        = aws_instance.ec2-wp.id
   port             = "80"
 }
+
+#Create Route 53 record for ALB
+resource "aws_route53_record" "dns-alb-wp" {
+  zone_id = var.route53-ad3f-zone-id
+  name = "blog.ad3f.me"
+  type = "A"
+
+  alias {
+    name = aws_lb.crc-wp-alb.dns_name
+    zone_id = aws_lb.crc-wp-alb.zone_id
+    evaluate_target_health = true
+  }
+}

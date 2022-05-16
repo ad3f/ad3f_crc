@@ -20,3 +20,8 @@ variable "rds-db-instance" {
   type    = string
   default = "db.t3.micro"
 }
+
+variable "route53-ad3f-zone-id" {
+  type = string
+  default = "Z01539043J6BVUGSFJRDR"
+}

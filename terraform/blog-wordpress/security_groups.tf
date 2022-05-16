@@ -52,6 +52,7 @@ resource "aws_security_group" "sg-ec2-wp" {
     to_port         = 80
     protocol        = "tcp"
     security_groups = [aws_security_group.sg-alb.id]
+    #cidr_blocks = [ "0.0.0.0/0" ]
   }
 
   ingress {

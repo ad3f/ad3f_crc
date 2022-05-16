@@ -66,11 +66,11 @@ resource "aws_lb_target_group" "alb-tg" {
 resource "aws_lb_listener" "alb-listener-http" {
   provider          = aws.aws-main
   load_balancer_arn = aws_lb.crc-wp-alb.arn
-  port              = "90"
+  port              = "80"
   protocol          = "HTTP"
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb.crc-wp-alb.arn
+    target_group_arn = aws_lb_target_group.alb-tg.arn
   }
 }
 
@@ -80,7 +80,7 @@ resource "aws_lb_listener" "alb-listener-http" {
 # define the port to communicate over
 resource "aws_lb_target_group_attachment" "alb-tg-attach" {
   provider         = aws.aws-main
-  target_group_arn = aws_lb.crc-wp-alb.arn
+  target_group_arn = aws_lb_target_group.alb-tg.arn
   target_id        = aws_instance.ec2-wp.id
   port             = "80"
 }

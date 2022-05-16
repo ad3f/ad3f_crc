@@ -22,6 +22,6 @@ variable "rds-db-instance" {
 }
 
 variable "route53-ad3f-zone-id" {
-  type = string
+  type    = string
   default = "Z01539043J6BVUGSFJRDR"
 }

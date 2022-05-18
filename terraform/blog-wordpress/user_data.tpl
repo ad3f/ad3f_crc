@@ -1,4 +1,10 @@
 #!/bin/bash
+
+#Reference
+#User Data script has been sourced from the below repo. 
+#https://github.com/devbhusal/terraform-ec2-RDS-wordpress
+
+
 # variable will be populated by terraform template
 db_username=${db_username}
 db_user_password=${db_user_password}

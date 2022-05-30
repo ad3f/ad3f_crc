@@ -26,10 +26,10 @@ def lambda_handler(event, context):
 
     data = {
         'statusCode': 200,
-        'body': json.dumps(str(response.get('Item'))),
+        'body': json.dumps(str(response.get('Item').get('CALC_TOTAL'))),
         'headers': {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': ['cv.ad3f.me/*', 'http://*', 'https://*']
+        'Access-Control-Allow-Origin': '*'
       },
     }
   
